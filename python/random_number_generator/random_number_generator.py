@@ -71,6 +71,6 @@ def writeToFile():
 
 
 if __name__ == '__main__':
-    writeToFile();
+    writeToFile()
     #unittest.main()
 
