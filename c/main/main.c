@@ -5,6 +5,7 @@
 
 int main(int argc, char *argv[])
 {   
+#ifdef RELEASE
     if (argc != 3) {
         printf("usage:\n");
         printf("\tsort <filein> <fileout>\n");
@@ -32,12 +33,41 @@ int main(int argc, char *argv[])
         *p++ = a;
     }
     fclose(fin);
+    
+    // ======================================
+    // sort functions
+    // ======================================
+    //insertion_sort(iout, numb);
+    merge_sort(iout, 0, numb - 1);
+    
 
-    // sort
-    insertion_sort(iout, numb);
+
     FILE * fout = fopen(argv[2], "w");
     for (int i = 0; i < numb; i++) {
         fprintf(fout, "%d,", *(iout + i));
     }
     fclose(fout);
+#endif
+
+#ifdef DEBUG
+    int a[10] = {3, 5, 7, 9, 2, 8, 6, 4, 1, 0};
+    merge_sort(a, 0, 9);
+    for(int i = 0; i < 10; ++i) {
+        printf("%d, ", a[i]);
+    }
+    putchar('\n');
+
+    int b[10] = {1, 3, 5, 700, 900, 2, 4, 6, 8, 10};
+    int c[2] = { 9, 2 };
+    merge(c, 0, 0, 1);
+    merge(b, 0, 4, 9);
+    for(int i = 0; i < 2; ++i) {
+        printf("%d, ", c[i]);
+    }
+    putchar('\n');
+    for(int i = 0; i < 10; ++i) {
+        printf("%d, ", b[i]);
+    }
+    putchar('\n');
+#endif
 }
