@@ -5,9 +5,9 @@
 // ================================================================
 // insertion sort
 // ================================================================
-void insertion_sort(int * array, int numb){
+void insertion_sort(int * array, int size){
     int key, i;
-    for (int j = 1; j < numb; j++) {
+    for (int j = 1; j < size; j++) {
         key = array[j];
         i = j - 1;
         while ( i >= 0 && array[i] > key) {
@@ -61,5 +61,21 @@ void merge_sort(int *array, int head, int tail){
         merge_sort(array, head, middle);
         merge_sort(array, middle + 1, tail);
         merge(array, head, middle, tail);
+    }
+}
+
+// ================================================================
+// bubble sort
+// ================================================================
+void bubble_sort(int *array, int size){
+    int tmp;
+    for ( int i = 0; i < size; i++ ) {
+        for ( int j = size - 1; j > i; --j ) {
+            if ( array[j] < array[j-1] ) {
+                tmp = array[j];
+                array[j] = array[j-1];
+                array[j-1] = tmp;
+            }
+        }
     }
 }
