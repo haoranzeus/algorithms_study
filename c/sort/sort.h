@@ -1,5 +1,5 @@
-#ifndef INSERTION_H_
-#define INSERTION_H_
+#ifndef SORT_H_
+#define SORT_H_
 
 //#define DEBUG
 #define RELEASE

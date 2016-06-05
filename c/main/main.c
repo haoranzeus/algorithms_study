@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <malloc.h>
-#include "insertion.h"
+#include "sort.h"
 
 int main(int argc, char *argv[])
 {   
