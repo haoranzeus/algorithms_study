@@ -79,3 +79,50 @@ void bubble_sort(int *array, int size){
         }
     }
 }
+
+
+// ================================================================
+// heap sort
+// ================================================================
+#define LEFT(i)     (2 * i)
+#define RIGHT(i)    (2 * i + 1)
+void max_heapify(int * array, int node, int array_size){
+    int heap_size = array_size;
+    int l = LEFT(node);
+    int r = RIGHT(node);
+    int largest;
+    if (l <= heap_size && array[l] > array[node]) {
+        largest = l;
+    }
+    else {
+        largest = node;
+    }
+    if (r <= heap_size && array[r] > array[largest]) {
+        largest = r;
+    }
+    if (largest != node) {
+        int tmp = array[node];
+        array[node] = array[largest];
+        array[largest] = tmp;
+    }
+    if (largest != node)
+        max_heapify(array, largest, array_size);
+}
+
+void build_max_heap(int * array, int array_size){
+    for (int i = array_size/2; i >= 1; i--) {
+        max_heapify(array, i, array_size);
+    }
+}
+
+void heap_sort(int * array, int array_size){
+    build_max_heap(array, array_size);
+    int heap_size = array_size;
+    for (int i = array_size; i >= 2; i--) {
+        int tmp = array[1];
+        array[1] = array[i];
+        array[i] = tmp;
+        heap_size -= 1;
+        max_heapify(array, 1, heap_size);
+    }
+}
