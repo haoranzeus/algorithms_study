@@ -40,7 +40,8 @@ int main(int argc, char *argv[])
     //insertion_sort(iout, numb);
     //merge_sort(iout, 0, numb - 1);
     //bubble_sort(iout, numb);
-    heap_sort(iout - 1, numb);
+    //heap_sort(iout - 1, numb);
+    quick_sort(iout, 0, numb - 1);
     
 
 
@@ -55,7 +56,8 @@ int main(int argc, char *argv[])
     int a[10] = {3, 5, 7, 9, 2, 8, 6, 4, 1, 0};
     //merge_sort(a, 0, 9);
     //bubble_sort(a, 10);
-    heap_sort(a-1, 10);
+    //heap_sort(a-1, 10);
+    quick_sort(a, 0, 9);
     for(int i = 0; i < 10; ++i) {
         printf("%d, ", a[i]);
     }

@@ -126,3 +126,34 @@ void heap_sort(int * array, int array_size){
         max_heapify(array, 1, heap_size);
     }
 }
+
+// ================================================================
+// quick sort
+// ================================================================
+void quick_sort(int *array, int head, int tail){
+    if (head >= tail){
+        return;
+    }
+            
+    int tmp = array[head];
+    int l = head + 1;
+    int r = tail;
+    int t;
+    while (l != r) {
+        while (array[r] >= tmp && l < r) {
+            r--;
+        }
+        while (array[l] <= tmp && l < r) {
+            l++;
+        }
+        if (l < r) {
+            t = array[l];
+            array[l] = array[r];
+            array[r] = t;
+        }
+    }
+    array[head] = array[l];
+    array[l] = tmp;
+    quick_sort(array, head, l - 1);
+    quick_sort(array, l + 1, tail);
+}

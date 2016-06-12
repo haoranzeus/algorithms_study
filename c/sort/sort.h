@@ -19,4 +19,6 @@ void bubble_sort(int * array, int size);
 
 void heap_sort(int *array, int size);
 
+void quick_sort(int *array, int head, int tail);
+
 #endif
